@@ -8,9 +8,11 @@ df = pd.DataFrame({'A': [0, 1, 2, 3, 4],
 # Using pandas replace function
 df.replace({'C': {'a': 100, 'b': 200}})
 
-# Using apply & map 
+# Using apply & get 
 df['C'] = df['C'].apply({'a': 100, 'b': 200}.get)
 
+# Using map
+df['C'] = df['C'].map({'a': 100, 'b': 200})
 
 # Using lambda function
 df['C'] = df['C'].apply(lambda x: 100 if x == 'a' else 200)
