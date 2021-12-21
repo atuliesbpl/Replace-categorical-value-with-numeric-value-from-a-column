@@ -1,0 +1,16 @@
+# Ways to replace categorical value of a column to numerical column
+
+# Dataframe
+df = pd.DataFrame({'A': [0, 1, 2, 3, 4],
+                   'B': [5, 6, 7, 8, 9],
+                   'C': ['a', 'b', 'a', 'b', 'a']})
+
+# Using pandas replace function
+df.replace({'C': {'a': 100, 'b': 200}})
+
+# Using apply & map 
+df['C'] = df['C'].apply({'a': 100, 'b': 200}.get)
+
+
+# Using lambda function
+df['C'] = df['C'].apply(lambda x: 100 if x == 'a' else 200)
